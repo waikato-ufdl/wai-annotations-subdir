@@ -1,6 +1,10 @@
 # wai-annotations-subdir
 wai.annotations module for managing image classification annotations with sub-directories corresponding to labels.
 
+The manual is available here:
+
+https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/
+
 ## Plugins
 ### FROM-SUBDIR-IC
 Reads images from sub-directories named after their class labels.
