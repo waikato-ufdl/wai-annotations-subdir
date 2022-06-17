@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0.1 (????-??-??)
+------------------
+
+- added reader/writer for audio classification: `from-subdir-ac` and `to-subdir-ac`
+
+
 1.0.0 (2021-05-20)
 ------------------
 

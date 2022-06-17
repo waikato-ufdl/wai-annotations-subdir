@@ -14,7 +14,7 @@ def _read(filename: str) -> str:
 
 setup(
     name="wai.annotations.subdir",
-    description="Sub-directory image classification format plugins for wai.annotations.",
+    description="Sub-directory audio/image classification format plugins for wai.annotations.",
     long_description=f"{_read('DESCRIPTION.rst')}\n"
                      f"{_read('CHANGES.rst')}",
     url="https://github.com/waikato-datamining/wai-annotations-subdir",
@@ -44,6 +44,9 @@ setup(
             # Image Classification Formats
             "from-subdir-ic=wai.annotations.subdir.specifier:SubDirInputFormatSpecifier",
             "to-subdir-ic=wai.annotations.subdir.specifier:SubDirOutputFormatSpecifier",
+            # Audio Classification Formats
+            "from-subdir-ac=wai.annotations.subdir.specifier:SubDirACInputFormatSpecifier",
+            "to-subdir-ac=wai.annotations.subdir.specifier:SubDirACOutputFormatSpecifier",
         ]
     }
 )
