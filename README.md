@@ -59,6 +59,32 @@ optional arguments:
 ```
 
 
+### FROM-SUBDIR-SC
+Reads spectra from sub-directories named after their class labels.
+
+#### Domain(s):
+- **Spectrum Classification Domain**
+
+#### Options:
+```
+usage: from-subdir-sc [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
+                      [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax) (default: [])
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax) (default: [])
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax) (default: [])
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax) (default: [])
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into (default: None)
+  --seed SEED           the seed to use for randomisation (default: None)
+```
+
+
 ### TO-SUBDIR-AC
 Writes audio files to sub-directories named after their class labels.
 
@@ -92,6 +118,28 @@ usage: to-subdir-ic -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                     [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
+  -o PATH, --output PATH
+                        the directory to store the class directories in (default: None)
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits (default: [])
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits (default: [])
+```
+
+
+### TO-SUBDIR-SC
+Writes spectra to sub-directories named after their class labels.
+
+#### Domain(s):
+- **Spectrum Classification Domain**
+
+#### Options:
+```
+usage: to-subdir-sc [--no-interleave] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+                    [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to store the class directories in (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]

@@ -14,7 +14,7 @@ def _read(filename: str) -> str:
 
 setup(
     name="wai.annotations.subdir",
-    description="Sub-directory audio/image classification format plugins for wai.annotations.",
+    description="Sub-directory classification-based format plugins for wai.annotations.",
     long_description=f"{_read('DESCRIPTION.rst')}\n"
                      f"{_read('CHANGES.rst')}",
     url="https://github.com/waikato-datamining/wai-annotations-subdir",
@@ -33,20 +33,23 @@ setup(
         "wai",
         "wai.annotations"
     ],
-    version="1.0.1",
+    version="2.0.0",
     author='Corey Sterling',
     author_email='coreytsterling@gmail.com',
     install_requires=[
-        "wai.annotations.core>=0.1.8",
+        "wai.annotations.core>=0.2.2",
     ],
     entry_points={
         "wai.annotations.plugins": [
             # Image Classification Formats
-            "from-subdir-ic=wai.annotations.subdir.specifier:SubDirInputFormatSpecifier",
-            "to-subdir-ic=wai.annotations.subdir.specifier:SubDirOutputFormatSpecifier",
+            "from-subdir-ic=wai.annotations.subdir.ic.specifier:SubDirInputFormatSpecifier",
+            "to-subdir-ic=wai.annotations.subdir.ic.specifier:SubDirOutputFormatSpecifier",
             # Audio Classification Formats
-            "from-subdir-ac=wai.annotations.subdir.specifier:SubDirACInputFormatSpecifier",
-            "to-subdir-ac=wai.annotations.subdir.specifier:SubDirACOutputFormatSpecifier",
+            "from-subdir-ac=wai.annotations.subdir.ac.specifier:SubDirInputFormatSpecifier",
+            "to-subdir-ac=wai.annotations.subdir.ac.specifier:SubDirOutputFormatSpecifier",
+            # Spectrum Classification Formats
+            "from-subdir-sc=wai.annotations.subdir.sc.specifier:SubDirInputFormatSpecifier",
+            "to-subdir-sc=wai.annotations.subdir.sc.specifier:SubDirOutputFormatSpecifier",
         ]
     }
 )

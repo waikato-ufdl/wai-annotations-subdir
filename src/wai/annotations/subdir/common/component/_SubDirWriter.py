@@ -1,4 +1,5 @@
 import os
+from typing import Type, TypeVar
 
 from wai.annotations.core.component.util import (
     LocalFileWriter,
@@ -7,14 +8,17 @@ from wai.annotations.core.component.util import (
     SplitState,
     ExpectsDirectory
 )
-from wai.annotations.domain.image.classification import ImageClassificationInstance
+from wai.annotations.core.domain import Data, Instance
+from wai.annotations.domain.classification import Classification
+
+InstanceType = TypeVar('InstanceType', bound=Instance[Data, Classification])
 
 
 class SubDirWriter(
     ExpectsDirectory,
     RequiresNoSplitFinalisation,
-    LocalFileWriter[ImageClassificationInstance],
-    SplitSink[ImageClassificationInstance]
+    LocalFileWriter[InstanceType],
+    SplitSink[InstanceType]
 ):
     """
     Writes images into a separate sub-directory for each label.
@@ -23,7 +27,7 @@ class SubDirWriter(
 
     def consume_element_for_split(
             self,
-            element: ImageClassificationInstance
+            element: InstanceType
     ):
         # Format the class sub-directory
         class_path = self._split_path
