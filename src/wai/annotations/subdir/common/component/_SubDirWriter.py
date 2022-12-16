@@ -1,5 +1,5 @@
 import os
-from typing import Type, TypeVar
+from typing import TypeVar
 
 from wai.annotations.core.component.util import (
     LocalFileWriter,
