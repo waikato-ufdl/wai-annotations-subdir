@@ -33,23 +33,29 @@ setup(
         "wai",
         "wai.annotations"
     ],
-    version="2.0.1",
+    version="3.0.0",
     author='Corey Sterling',
     author_email='coreytsterling@gmail.com',
     install_requires=[
-        "wai.annotations.core>=0.2.2",
+        "wai.annotations.core>=0.3.0",
     ],
+    extras_require={
+        "test": ["wai.annotations.core[test]>=0.3.0"]
+    },
     entry_points={
         "wai.annotations.plugins": [
+            # Generic Formats
+            "from-subdir=wai.annotations.subdir.specifier:SubDirInputFormatSpecifier",
+            "to-subdir=wai.annotations.subdir.specifier:SubDirOutputFormatSpecifier",
             # Image Classification Formats
-            "from-subdir-ic=wai.annotations.subdir.ic.specifier:SubDirInputFormatSpecifier",
-            "to-subdir-ic=wai.annotations.subdir.ic.specifier:SubDirOutputFormatSpecifier",
+            "from-subdir-ic=wai.annotations.subdir.specifier:SubDirInputFormatSpecifier",
+            "to-subdir-ic=wai.annotations.subdir.specifier:SubDirOutputFormatSpecifier",
             # Audio Classification Formats
-            "from-subdir-ac=wai.annotations.subdir.ac.specifier:SubDirInputFormatSpecifier",
-            "to-subdir-ac=wai.annotations.subdir.ac.specifier:SubDirOutputFormatSpecifier",
+            "from-subdir-ac=wai.annotations.subdir.specifier:SubDirInputFormatSpecifier",
+            "to-subdir-ac=wai.annotations.subdir.specifier:SubDirOutputFormatSpecifier",
             # Spectrum Classification Formats
-            "from-subdir-sc=wai.annotations.subdir.sc.specifier:SubDirInputFormatSpecifier",
-            "to-subdir-sc=wai.annotations.subdir.sc.specifier:SubDirOutputFormatSpecifier",
+            "from-subdir-sc=wai.annotations.subdir.specifier:SubDirInputFormatSpecifier",
+            "to-subdir-sc=wai.annotations.subdir.specifier:SubDirOutputFormatSpecifier",
         ]
     }
 )
